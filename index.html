@@ -4,96 +4,101 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class='arm'></div>
+    <div class='hand'></div>
+    <div class='watch-strap'></div>
     <div class='calculator-wrapper'>
         <div class='result-wrapper'>
-            <div id='input' class='current-numbers'>
-            </div>
-            <div class='result'>
-                5
-            </div>
+            <div data-previous class='previous-numbers'></div>
+            <div data-numbers class='current-numbers'>0</div>
         </div>
         <div class='buttons-wrapper'>
             <div class='row first'>
                 <div class='button-group' id='seven'>
                     <p>7</p>
-                    <button id='seven-button' value='7' onclick="addInput('seven-button')"></button>   
+                    <button data-number id='seven-button' value='7' ></button>   
                 </div>
                 <div class='button-group' id='eight'>
                     <p>8</p>
-                    <button id='eight-button'value='8' onclick="addInput('eight-button')"></button>
+                    <button data-number id='eight-button'value='8' ></button>
                 </div>
                 <div class='button-group' id="nine">
                     <p>9</p>
-                    <button id='nine-button' value='9' onclick="addInput('nine-button')"></button>
+                    <button data-number id='nine-button' value='9' ></button>
                 </div>
                 <div class='button-group operator' id='divide' >
                     <p>/</p>
-                    <button id='divide-button' value='/' onclick="addInput('divide-button')"></button>
+                    <button data-action="divide" id='divide-button' value='/'></button>
                 </div>
             </div>
             <hr>
             <div class='row second'>
                 <div class='button-group' id='four'>
                     <p>4</p>
-                    <button id='four-button' value='4' onclick="addInput('four-button')"></button>
+                    <button  data-number id='four-button' value='4' ></button>
                 </div>
                 <div class='button-group' id='five'>
                     <p>5</p>
-                    <button id='five-button' value='5' onclick="addInput('five-button')"></button>
+                    <button data-number id='five-button' value='5' ></button>
                 </div>
                 <div class='button-group' id='six'>
                     <p>6</p>
-                    <button id='six-button' value='6' onclick="addInput('six-button')"></button>
+                    <button data-number id='six-button' value='6'></button>
                 </div>
                 <div class='button-group operator' id='multiply'>
                     <p>*</p>
-                    <button id='multiply-button' value='*' onclick="addInput('multiply-button')"></button>
+                    <button  data-action="multiply" id='multiply-button' value='*'></button>
                 </div>
             </div>
             <hr>
             <div class='row third'>
                 <div class='button-group' id='one'>
                     <p>1</p>
-                    <button id='one-button' value='1' onclick="addInput('one-button')"></button>
+                    <button data-number id='one-button' value='1'></button>
                 </div>
                 <div class='button-group' id='two'>
                     <p>2</p>
-                    <button id='two-button' value='2' onclick="addInput('two-button')"></button>
+                    <button data-number id='two-button' value='2'></button>
                 </div>
                 <div class='button-group' id='three'>
                     <p>3</p>
-                    <button id='three-button' value='3' onclick="addInput('three-button')"></button>
+                    <button data-number id='three-button' value='3'></button>
                 </div>
                 <div class='button-group operator' id='subtract'>
                     <p>-</p>
-                    <button id='subtract-button' value='-' onclick="addInput('subtract-button')"></button>
+                    <button data-action="subtract" id='subtract-button' value='-'></button>
                 </div>
             </div>
             <hr>
             <div class='row fourth'>
                 <div class='button-group' id='zero'>
                     <p>0</p>
-                    <button id='zero-button' value='0' onclick="addInput('zero-button')"></button>
+                    <button  data-number id='zero-button' value='0'></button>
                 </div>
-                <div class='button-group' id='back'>
-                    <p>C</p>
-                    <button id='back-button'></button>
+                <div class='button-group' id='decimal'>
+                    <p>.</p>
+                    <button data-action="decimal" id='decimal-button'></button>
                 </div>
                 <div class='button-group operator' id='equals'>
                     <p>=</p>
-                    <button id='equals-button'></button>
+                    <button data-action="calculate" id='equals-button'></button>
                 </div>
                 <div class='button-group operator' id='add'>
                     <p>+</p>
-                    <button id='add-button'></button>
+                    <button data-action="add" id='add-button'></button>
                 </div>
             </div>
-            <!-- <div class='row fifth'>
-                <div id='clear'>
-                    <button class='button-group operator' id='clear-button'></button>
-                    clear
+            <div class='row fifth'>
+                <div class='button-group' id='clear'>
+                    <p>clear</p>
+                    <button data-action="clear" id='clear-button'></button>
+                    
                 </div>
-            </div> -->
+                <div class='button-group' id='back'>
+                    <p>back</p>
+                    <button data-action="back"  id='back-button'></button>
+                </div>
+            </div>
         </div>
 
     </div>
