@@ -76,10 +76,10 @@ btns.addEventListener('click', element =>{
             }
 
             if (
-                action == 'add' ||
-                action == 'subtract' ||
-                action == 'multiply' ||
-                action == 'divide') {
+                action === 'add' ||
+                action === 'subtract' ||
+                action === 'multiply' ||
+                action === 'divide') {
 
                 const firstValue = calculator.dataset.firstValue
                 const operator = calculator.dataset.operator
@@ -145,6 +145,12 @@ btns.addEventListener('click', element =>{
 })
 
 
+//added keyboard functionality 
+document.onkeydown = function(e) {
+    switch (e.keyCode){
+        case 49:
 
+    }
+}
 
 
