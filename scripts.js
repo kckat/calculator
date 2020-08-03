@@ -1,3 +1,4 @@
+console.log('hello')
 
 //selectors
 const calculator = document.querySelector('.calculator-wrapper')
@@ -27,14 +28,6 @@ function divide (a,b) {
     }
 }
 
-function roundNumbers(number){
-    if (number.length > 5){
-        number = Math.round(number * 100000) / 100000
-    }
-    return number
-}
-
-
 function operate(numA, operator, numB) {
     let result = ''
     console.log(operator)
@@ -49,23 +42,19 @@ function operate(numA, operator, numB) {
     } else {
         result = 'error'
     }
-    
-    if (typeof(result) == 'number') {
-        roundNumbers(result)
-    }
+    result = Math.round(result * 1000) / 1000
     return result
 }
 
-//calculation section
-function calculate(element) {
-    console.log(element)
-        const btn = element
+//add event listeners 
+btns.addEventListener('click', element =>{
+    if (element.target.matches('button')){
+        const btn = element.target
         const action = btn.dataset.action
         const btnContent = btn.value
         const displayNum = displayCurrent.textContent
         const prevKeyType = calculator.dataset.prevKeyType
 
-        //if button doesnt have an action, it is a number. Update the number on calculator
         if(!action){
             if(displayNum === '0' || prevKeyType == 'operator'){
                 displayCurrent.textContent = btnContent
@@ -78,7 +67,6 @@ function calculate(element) {
             console.log(btnContent)
             }
 
-            // add decimal to number
             if (action === 'decimal' && !displayNum.includes('.')) {
                 displayCurrent.textContent = displayNum + '.'
                 if (prevKeyType == 'operator' ) {
@@ -87,7 +75,6 @@ function calculate(element) {
                 calculator.dataset.prevKeyType = 'decimal'
             }
 
-            // perform operation and show result if multiple operations are strung together
             if (
                 action === 'add' ||
                 action === 'subtract' ||
@@ -117,7 +104,6 @@ function calculate(element) {
             }
 
 
-            // calculate result and let result be the new current value
             if (action === 'calculate') {
                 const firstValue = calculator.dataset.firstValue
                 const operator = calculator.dataset.operator
@@ -154,73 +140,15 @@ function calculate(element) {
 
             Array.from(btn.parentNode.children)
                 .forEach(b => b.classList.remove('is-selected'))
+        }
 
-}
-
-
-
-//add event listeners 
-btns.addEventListener('click', function(element){
-    if (element.target.matches('button')){
-    calculate(element.target)
-    }
 })
 
-
-<<<<<<< HEAD
 //added keyboard functionality 
 document.onkeydown = function(e) {
     switch (e.keyCode){
         case 49:
-=======
-//add keyboard functionality
-function keyListener(element) {
-    switch(true){
-        case(element.keyCode == 49):
-        calculate(btns.querySelector('#one-button'))
-            break;
-        case(element.keyCode == 50):
-        calculate(btns.querySelector('#two-button'))
-            break;
-        case(element.keyCode == 51):
-        calculate(btns.querySelector('#three-button'))
-            break;
-        case(element.keyCode == 52):
-        calculate(btns.querySelector('#four-button'))
-            break;
-        case(element.keyCode == 53):
-        calculate(btns.querySelector('#five-button'))
-            break;
-        case(element.keyCode == 54):
-        calculate(btns.querySelector('#six-button'))
-            break;
-        case(element.keyCode == 55):
-        calculate(btns.querySelector('#seven-button'))
-            break;
-        case(element.keyCode == 56):
-        calculate(btns.querySelector('#eight-button'))
-            break;
-        case(element.keyCode == 57):
-        calculate(btns.querySelector('#nine-button'))
-            break;
-        case(element.keyCode == 48):
-        calculate(btns.querySelector('#0-button'))
-            break;
-        case(element.keyCode == 13):
-        calculate(btns.querySelector('#equals-button'))
-            break;
-        case(element.keyCode == 190):
-        calculate(btns.querySelector('#decimal-button'))
-            break;
-        
-    }
-}
-
-document.addEventListener('keydown', keyListener, true)
-
->>>>>>> bc65aa8d6870310ed6632cd29278f0355950a0b4
 
     }
 }
-
 
