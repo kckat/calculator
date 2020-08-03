@@ -1,4 +1,3 @@
-console.log('hello')
 
 //selectors
 const calculator = document.querySelector('.calculator-wrapper')
