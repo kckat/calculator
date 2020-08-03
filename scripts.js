@@ -27,6 +27,14 @@ function divide (a,b) {
     }
 }
 
+function roundNumbers(number){
+    if (number.length > 5){
+        number = Math.round(number * 100000) / 100000
+    }
+    return number
+}
+
+
 function operate(numA, operator, numB) {
     let result = ''
     console.log(operator)
@@ -41,9 +49,13 @@ function operate(numA, operator, numB) {
     } else {
         result = 'error'
     }
-    result = Math.round(result * 1000) / 1000
+    
+    if (typeof(result) == 'number') {
+        roundNumbers(result)
+    }
     return result
 }
+
 
 //add event listeners 
 btns.addEventListener('click', element =>{
