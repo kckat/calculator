@@ -56,11 +56,10 @@ function operate(numA, operator, numB) {
     return result
 }
 
-
-//add event listeners 
-btns.addEventListener('click', element =>{
-    if (element.target.matches('button')){
-        const btn = element.target
+//calculation section
+function calculate(element) {
+    console.log(element)
+        const btn = element
         const action = btn.dataset.action
         const btnContent = btn.value
         const displayNum = displayCurrent.textContent
@@ -155,10 +154,63 @@ btns.addEventListener('click', element =>{
 
             Array.from(btn.parentNode.children)
                 .forEach(b => b.classList.remove('is-selected'))
-        }
 
+}
+
+
+
+//add event listeners 
+btns.addEventListener('click', function(element){
+    if (element.target.matches('button')){
+    calculate(element.target)
+    }
 })
 
+
+//add keyboard functionality
+function keyListener(element) {
+    switch(true){
+        case(element.keyCode == 49):
+        calculate(btns.querySelector('#one-button'))
+            break;
+        case(element.keyCode == 50):
+        calculate(btns.querySelector('#two-button'))
+            break;
+        case(element.keyCode == 51):
+        calculate(btns.querySelector('#three-button'))
+            break;
+        case(element.keyCode == 52):
+        calculate(btns.querySelector('#four-button'))
+            break;
+        case(element.keyCode == 53):
+        calculate(btns.querySelector('#five-button'))
+            break;
+        case(element.keyCode == 54):
+        calculate(btns.querySelector('#six-button'))
+            break;
+        case(element.keyCode == 55):
+        calculate(btns.querySelector('#seven-button'))
+            break;
+        case(element.keyCode == 56):
+        calculate(btns.querySelector('#eight-button'))
+            break;
+        case(element.keyCode == 57):
+        calculate(btns.querySelector('#nine-button'))
+            break;
+        case(element.keyCode == 48):
+        calculate(btns.querySelector('#0-button'))
+            break;
+        case(element.keyCode == 13):
+        calculate(btns.querySelector('#equals-button'))
+            break;
+        case(element.keyCode == 190):
+        calculate(btns.querySelector('#decimal-button'))
+            break;
+        
+    }
+}
+
+document.addEventListener('keydown', keyListener, true)
 
 
 
