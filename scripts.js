@@ -66,6 +66,7 @@ btns.addEventListener('click', element =>{
         const displayNum = displayCurrent.textContent
         const prevKeyType = calculator.dataset.prevKeyType
 
+        //if button doesnt have an action, it is a number. Update the number on calculator
         if(!action){
             if(displayNum === '0' || prevKeyType == 'operator'){
                 displayCurrent.textContent = btnContent
@@ -78,6 +79,7 @@ btns.addEventListener('click', element =>{
             console.log(btnContent)
             }
 
+            // add decimal to number
             if (action === 'decimal' && !displayNum.includes('.')) {
                 displayCurrent.textContent = displayNum + '.'
                 if (prevKeyType == 'operator' ) {
@@ -86,6 +88,7 @@ btns.addEventListener('click', element =>{
                 calculator.dataset.prevKeyType = 'decimal'
             }
 
+            // perform operation and show result if multiple operations are strung together
             if (
                 action == 'add' ||
                 action == 'subtract' ||
@@ -115,6 +118,7 @@ btns.addEventListener('click', element =>{
             }
 
 
+            // calculate result and let result be the new current value
             if (action === 'calculate') {
                 const firstValue = calculator.dataset.firstValue
                 const operator = calculator.dataset.operator
